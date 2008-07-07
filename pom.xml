@@ -46,10 +46,14 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.glassfish</groupId>
-    <artifactId>javax.annotation</artifactId>
+    <properties>
+        <extension.name>javax.annotation</extension.name>
+        <spec.version>1.0</spec.version>
+    </properties>
+    <artifactId>${extension.name}</artifactId>
     <packaging>jar</packaging>
-    <name>Common Annotations for the Java(TM) Platform</name>
-    <description>Common Annotations for the JavaTM Platform API Repackaged as OSGi bundle in GlassFish</description>
+    <name>${extension.name} API v.${spec.version}</name>
+    <description>Common Annotations for the JavaTM Platform API version ${spec.version} Repackaged as OSGi bundle in GlassFish</description>
     <dependencies>
         <dependency>
             <groupId>javax.annotation</groupId>
