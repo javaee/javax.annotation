@@ -41,6 +41,6 @@ import static java.lang.annotation.RetentionPolicy.*;
  */
 @Documented
 @Retention (RUNTIME)
-@Target(METHOD)
+@Target({TYPE, METHOD})
 public @interface DenyAll {
 }
