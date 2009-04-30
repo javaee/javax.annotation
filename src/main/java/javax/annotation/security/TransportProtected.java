@@ -43,5 +43,5 @@ import static java.lang.annotation.RetentionPolicy.*;
 @Retention (RUNTIME)
 @Target({TYPE, METHOD})
 public @interface TransportProtected {
-     boolean value();
+     boolean value() default true;
 }
