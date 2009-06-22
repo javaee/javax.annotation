@@ -33,7 +33,7 @@ import static java.lang.annotation.RetentionPolicy.*;
 /**
  * The ManagedBean annotation marks a POJO (Plain Old Java Object) as a
  * ManagedBean.A ManagedBean supports a small set of basic services such as
- * resource inhjection, lifecycle callbacks and interceptors.
+ * resource injection, lifecycle callbacks and interceptors.
  */
 @Target(TYPE)
 @Retention(RUNTIME)
