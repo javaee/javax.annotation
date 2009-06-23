@@ -50,7 +50,7 @@ import java.lang.annotation.RetentionPolicy;
  * <code>XADataSource</code>, must be indicated by the <code>className</code>
  * element. The availability of the driver class will be assumed at runtime.
  *<p>
- * The <code>url</code> property should not be specified in conjuction with
+ * The <code>url</code> property should not be specified in conjunction with
  * other standard properties for defining the connectivity to the database.
  * If the <code>url</code> property is specified along with other standard
  * <code>DataSource</code> properties
