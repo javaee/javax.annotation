@@ -36,7 +36,7 @@ import java.lang.annotation.RetentionPolicy;
  * Declares one or more <code>DataSourceDefinition</code> annotations.
  * 
  * @see javax.annotation.sql.DataSourceDefinition
- * @since 1.0.1
+ * @since Common Annotations 1.1
  */
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)

@@ -108,7 +108,7 @@ import java.lang.annotation.RetentionPolicy;
  * @see javax.sql.DataSource
  * @see javax.sql.XADataSource
  * @see javax.sql.ConnectionPoolDataSource
- * @since 1.1
+ * @since Common Annotations 1.1
  */
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
