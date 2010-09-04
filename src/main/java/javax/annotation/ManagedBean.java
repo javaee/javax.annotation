@@ -38,11 +38,6 @@
  * holder.
  */
 
-/*
- *
- * Copyright 2005-2009 Sun Microsystems, Inc. All Rights Reserved.
- */
-
 package javax.annotation;
 
 import java.lang.annotation.*;

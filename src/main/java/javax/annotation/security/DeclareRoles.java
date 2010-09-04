@@ -38,12 +38,6 @@
  * holder.
  */
 
-/*
- *
- * Copyright 2005-2006 Sun Microsystems, Inc. All Rights Reserved.
- */
-
-
 package javax.annotation.security;
 import java.lang.annotation.*;
 import static java.lang.annotation.ElementType.*;

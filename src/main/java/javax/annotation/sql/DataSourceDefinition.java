@@ -38,12 +38,6 @@
  * holder.
  */
 
-/*
- *
- * Copyright 2005-2009 Sun Microsystems, Inc. All Rights Reserved.
- */
-
-
 package javax.annotation.sql;
 
 import java.lang.annotation.Target;
