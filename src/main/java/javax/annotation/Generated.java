@@ -44,7 +44,7 @@ import static java.lang.annotation.ElementType.*;
 import static java.lang.annotation.RetentionPolicy.*;
 
 /**
- * The Generated annoation is used to mark source code that has been generated.
+ * The Generated annotation is used to mark source code that has been generated.
  * It can also be used to differentiate user written code from generated code
  * in a single file. When used, the value element must have the name of the 
  * code generator. The recommended convention is to use the fully qualified 
