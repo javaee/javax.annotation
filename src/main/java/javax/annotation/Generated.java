@@ -67,8 +67,9 @@ import static java.lang.annotation.RetentionPolicy.*;
         LOCAL_VARIABLE, PARAMETER})
 public @interface Generated {
    /**
-    * This is used by the code generator to mark the generated classes
-    * and methods.
+    * The value element MUST have the name of the code generator.
+    * The recommended convention is to use the fully qualified name of the
+    * code generator. For example: com.acme.generator.CodeGen.
     */
    String[] value();
 
