@@ -146,7 +146,6 @@
                         <Bundle-Description>
                             Java(TM) Common Annotations ${spec.version} API Design Specification
                         </Bundle-Description>
-                        <Bundle-Version>${bundle.version}</Bundle-Version>
                         <Extension-Name>${extension.name}</Extension-Name>
                         <Specification-Version>${spec.version}</Specification-Version>
                         <Specification-Vendor>${vendor.name}</Specification-Vendor>
