@@ -64,7 +64,7 @@
         <findbugs.threshold>Low</findbugs.threshold>
     </properties>
     <name>${extension.name} API</name>
-    <description>Common Annotations for the JavaTM Platform API version</description>
+    <description>Common Annotations for the JavaTM Platform API</description>
     
     <url>http://jcp.org/en/jsr/detail?id=250</url>
 
