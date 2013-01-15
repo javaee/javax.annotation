@@ -51,12 +51,13 @@
 
     <groupId>javax.annotation</groupId>
     <artifactId>javax.annotation-api</artifactId>
-    <version>1.2-SNAPSHOT</version>
+    <version>1.2-b01-SNAPSHOT</version>
     
     <properties>
         <extension.name>javax.annotation</extension.name>
-        <spec.version>1.1</spec.version>
+        <spec.version>1.1.99.01</spec.version>
         <bundle.symbolicName>javax.annotation-api</bundle.symbolicName>         
+        <bundle.version>1.1.99.b01</bundle.version>
         <vendor.name>Oracle Corporation</vendor.name>
         <implementation.vendor.id>org.glassfish</implementation.vendor.id>
         <findbugs.version>2.3.1</findbugs.version>
@@ -146,6 +147,7 @@
                         <Bundle-Description>
                             Java(TM) Common Annotations ${spec.version} API Design Specification
                         </Bundle-Description>
+                        <Bundle-Version>${bundle.version}</Bundle-Version>
                         <Extension-Name>${extension.name}</Extension-Name>
                         <Specification-Version>${spec.version}</Specification-Version>
                         <Specification-Vendor>${vendor.name}</Specification-Vendor>
