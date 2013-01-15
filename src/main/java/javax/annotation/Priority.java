@@ -65,7 +65,6 @@ import static java.lang.annotation.RetentionPolicy.*;
  */
 @Target({TYPE})
 @Retention(RUNTIME)
-@Inherited
 @Documented
 public @interface Priority {
     /**
