@@ -51,7 +51,7 @@
 
     <groupId>javax.annotation</groupId>
     <artifactId>javax.annotation-api</artifactId>
-    <version>1.2-b03-SNAPSHOT</version>
+    <version>1.2-b01-SNAPSHOT</version>
     
     <properties>
         <extension.name>javax.annotation</extension.name>
