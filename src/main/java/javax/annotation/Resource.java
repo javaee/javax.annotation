@@ -93,7 +93,7 @@ public @interface Resource {
      * For class annotations, there is no default and this must be
      * specified.
      */
-    Class type() default java.lang.Object.class;
+    Class<?> type() default java.lang.Object.class;
 
     /**
      * The two possible authentication types for a resource.

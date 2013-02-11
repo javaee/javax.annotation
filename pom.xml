@@ -55,9 +55,9 @@
     
     <properties>
         <extension.name>javax.annotation</extension.name>
-        <spec.version>1.1.99.01</spec.version>
+        <spec.version>1.1.99.02</spec.version>
         <bundle.symbolicName>javax.annotation-api</bundle.symbolicName>         
-        <bundle.version>1.1.99.b01</bundle.version>
+        <bundle.version>1.1.99.b02</bundle.version>
         <vendor.name>Oracle Corporation</vendor.name>
         <implementation.vendor.id>org.glassfish</implementation.vendor.id>
         <findbugs.version>2.3.1</findbugs.version>
