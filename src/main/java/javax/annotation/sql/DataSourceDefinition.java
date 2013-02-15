@@ -63,13 +63,52 @@ import java.lang.annotation.RetentionPolicy;
  * <code>XADataSource</code>, must be indicated by the <code>className</code>
  * element. The availability of the driver class will be assumed at runtime.
  *<p>
- * The <code>url</code> property should not be specified in conjunction with
- * other standard properties for defining the connectivity to the database.
- * If the <code>url</code> property is specified along with other standard
- * <code>DataSource</code> properties
- * such as <code>serverName</code> and <code>portNumber</code>, the more
- * specific properties will take precedence and <code>url</code> will be
- * ignored.
+ * DataSource properties should not be specified more than once. If
+ * the url annotation element contains a DataSource property that was also
+ * specified using the corresponding annotation element or was specified in
+ * the properties annotation element, the precedence order is undefined
+ * and implementation specific:
+ * <p>
+ * <pre>
+ *   &#064;DataSourceDefinition(name="java:global/MyApp/MyDataSource",
+ *      className="org.apache.derby.jdbc.ClientDataSource",
+ *      url="jdbc:derby://localhost:1527/myDB;user=bill",
+ *      user="lance",
+ *      password="secret",
+ *      databaseName="testDB",
+ *      serverName="luckydog"
+ *   )// DO NOT DO THIS!!!
+ * </pre>
+ * <p>
+ * In the above example, the databaseName, user and serverName properties were
+ * specified as part of the url property and using the corresponding
+ * annotation elements. This should be avoided.
+ * <p>
+ * If the properties annotation element is used and contains a DataSource
+ * property that was also specified using the corresponding annotation element,
+ * the annotation element value takes precedence.  For example:
+ * <p>
+ * <pre>
+ *   &#064;DataSourceDefinition(name="java:global/MyApp/MyDataSource",
+ *      className="org.apache.derby.jdbc.ClientDataSource",
+ *      user="lance",
+ *      password="secret",
+ *      databaseName="testDB",
+ *      serverName="luckydog",
+ *       properties= {"databaseName=myDB", "databaseProp=doThis"}
+ *   )// DO NOT DO THIS!!!
+ * </pre>
+ * <p>
+ * Would result in the following values being used when configuring
+ * the DataSource:
+ * <ul>
+ * <li>serverName=luckydog</li>
+ * <li>portNumber=1527</li>
+ * <li>databaseName=testDB</li>
+ * <li>user=lance</li>
+ * <li>password=secret</li>
+ * <li>databaseProp=doThis</li>
+ * </ul>
  * <p>
  * Vendors are not required to support properties that do not normally
  * apply to a specific data source type. For example, specifying the
@@ -148,11 +187,9 @@ public @interface DataSourceDefinition {
     String description() default "";
 
     /**
-     * A JDBC URL.  If the <code>url</code> property is specified along with
-     * other standard <code>DataSource</code> properties
-     * such as <code>serverName</code> and <code>portNumber</code>, the more
-     * specific properties will take precedence and <code>url</code> will be
-     * ignored.
+     * A JDBC URL.  If the url annotation element contains a DataSource
+     * property that was also specified using the corresponding annotation
+     * element, the precedence order is undefined and implementation specific.
      * @since 1.1
      */
     String url() default "";
@@ -273,6 +310,10 @@ public @interface DataSourceDefinition {
      * <p>
      *  Properties are specified using the format:
      *  <i>propertyName=propertyValue</i>  with one property per array element.
+     * <p>
+     * If a DataSource property is specified in the properties
+     * element and the annotation element for the  property is also
+     * specified, the annotation element value takes precedence.
      * @since 1.1
      */
     String[] properties() default {};
