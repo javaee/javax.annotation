@@ -51,13 +51,13 @@
 
     <groupId>javax.annotation</groupId>
     <artifactId>javax.annotation-api</artifactId>
-    <version>1.2-b05-SNAPSHOT</version>
+    <version>1.2-SNAPSHOT</version>
     
     <properties>
+        <non.final>false</non.final>
+        <spec.version>1.2</spec.version>
         <extension.name>javax.annotation</extension.name>
-        <spec.version>1.1.99.02</spec.version>
         <bundle.symbolicName>javax.annotation-api</bundle.symbolicName>         
-        <bundle.version>1.1.99.b02</bundle.version>
         <vendor.name>Oracle Corporation</vendor.name>
         <implementation.vendor.id>org.glassfish</implementation.vendor.id>
         <findbugs.version>2.3.1</findbugs.version>
@@ -135,6 +135,28 @@
                 </configuration>
             </plugin>
             <plugin>
+                <groupId>org.glassfish.build</groupId>
+                <artifactId>spec-version-maven-plugin</artifactId>
+                <version>1.2</version>
+                <configuration>
+                    <spec>
+                        <nonFinal>${non.final}</nonFinal>
+                        <jarType>api</jarType>
+                        <specVersion>${spec.version}</specVersion>
+                        <specImplVersion>${project.version}</specImplVersion>
+                        <apiPackage>${extension.name}</apiPackage>
+                    </spec>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>set-spec-properties</goal>
+                            <goal>check-module</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>            
+            <plugin>
                 <groupId>org.apache.felix</groupId>
                 <artifactId>maven-bundle-plugin</artifactId>
                 <version>1.4.3</version>
@@ -143,15 +165,15 @@
                         <supportedProjectType>jar</supportedProjectType>
                     </supportedProjectTypes>
                     <instructions>
-                        <Bundle-SymbolicName>${bundle.symbolicName}</Bundle-SymbolicName>
+                        <Bundle-Version>${spec.bundle.version}</Bundle-Version>
+                        <Bundle-SymbolicName>${spec.bundle.symbolic-name}</Bundle-SymbolicName>
+                        <Extension-Name>${spec.extension.name}</Extension-Name>
+                        <Implementation-Version>${spec.implementation.version}</Implementation-Version>
+                        <Specification-Version>${spec.specification.version}</Specification-Version>                         
                         <Bundle-Description>
                             Java(TM) Common Annotations ${spec.version} API Design Specification
                         </Bundle-Description>
-                        <Bundle-Version>${bundle.version}</Bundle-Version>
-                        <Extension-Name>${extension.name}</Extension-Name>
-                        <Specification-Version>${spec.version}</Specification-Version>
                         <Specification-Vendor>${vendor.name}</Specification-Vendor>
-                        <Implementation-Version>${project.version}</Implementation-Version>
                         <Implementation-Vendor>${project.organization.name}</Implementation-Vendor>
                         <Implementation-Vendor-Id>${implementation.vendor.id}</Implementation-Vendor-Id>
                     </instructions>
@@ -229,10 +251,18 @@
                                     <packages>javax.annotation</packages>
                                 </group>
                             </groups>
+                            <bottom>
+<![CDATA[Copyright &#169; 1999-2013,
+    <a href="http://www.oracle.com">Oracle</a>
+    and/or its affiliates. All Rights Reserved.
+    Use is subject to
+    <a href="{@docRoot}/doc-files/speclicense.html" target="_top">license terms</a>.
+]]>
+                            </bottom>                            
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>     
+            </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>findbugs-maven-plugin</artifactId>
