@@ -51,7 +51,7 @@
 
     <groupId>javax.annotation</groupId>
     <artifactId>javax.annotation-api</artifactId>
-    <version>1.2</version>
+    <version>1.3-SNAPSHOT</version>
     
     <properties>
         <non.final>false</non.final>
@@ -103,9 +103,9 @@
         </mailingList>
     </mailingLists>
     <scm>
-        <connection>scm:svn:https://svn.java.net/svn/glassfish~svn/tags/javax.annotation-api-1.2</connection>
-        <developerConnection>scm:svn:https://svn.java.net/svn/glassfish~svn/tags/javax.annotation-api-1.2</developerConnection>
-        <url>http://java.net/projects/glassfish/sources/svn/show/tags/javax.annotation-api-1.2</url>
+        <connection>scm:svn:https://svn.java.net/svn/glassfish~svn/trunk/api/javaee-api/javax.annotation</connection>
+        <developerConnection>scm:svn:https://svn.java.net/svn/glassfish~svn/trunk/api/javaee-api/javax.annotation</developerConnection>
+        <url>http://java.net/projects/glassfish/sources/svn/show/trunk/api/javaee-api/javax.annotation</url>
     </scm>
 
     <build>
