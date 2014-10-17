@@ -1,7 +1,7 @@
 /*
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
  *
- * Copyright (c) 2005-2011 Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 2005-2014 Oracle and/or its affiliates. All rights reserved.
  *
  * The contents of this file are subject to the terms of either the GNU
  * General Public License Version 2 only ("GPL") or the Common Development
@@ -63,7 +63,7 @@ import static java.lang.annotation.RetentionPolicy.*;
  * appear on private fields and methods of superclasses; the container
  * is required to perform injection in these cases as well.
  *
- * @since Common Annotations 1.0
+ * @since 1.6, Common Annotations 1.0
  */
 @Target({TYPE, FIELD, METHOD})
 @Retention(RUNTIME)
@@ -81,7 +81,7 @@ public @interface Resource {
      * The name of the resource that the reference points to. It can
      * link to any compatible resource using the global JNDI names.
      *
-     * @since Common Annotations 1.1
+     * @since 1.7, Common Annotations 1.1
      */
 
     String lookup() default "";

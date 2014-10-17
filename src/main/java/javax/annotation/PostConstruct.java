@@ -1,7 +1,7 @@
 /*
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
  *
- * Copyright (c) 2005-2013 Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 2005-2014 Oracle and/or its affiliates. All rights reserved.
  *
  * The contents of this file are subject to the terms of either the GNU
  * General Public License Version 2 only ("GPL") or the Common Development
@@ -85,9 +85,10 @@ import static java.lang.annotation.RetentionPolicy.*;
  * <li>If the method throws an unchecked exception the class MUST NOT be put into   
  * service except in the case of EJBs where the EJB can handle exceptions and 
  * even recover from them.</li></ul>
- * @since Common Annotations 1.0
+ *
  * @see javax.annotation.PreDestroy
  * @see javax.annotation.Resource
+ * @since 1.6, Common Annotations 1.0
  */
 @Documented
 @Retention (RUNTIME)
