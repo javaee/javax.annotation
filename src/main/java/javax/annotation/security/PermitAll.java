@@ -1,7 +1,7 @@
 /*
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
  *
- * Copyright (c) 2005-2011 Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 2005-2016 Oracle and/or its affiliates. All rights reserved.
  *
  * The contents of this file are subject to the terms of either the GNU
  * General Public License Version 2 only ("GPL") or the Common Development
@@ -45,12 +45,14 @@ import static java.lang.annotation.RetentionPolicy.*;
 
 /**
  * Specifies that all security roles are allowed to invoke the specified 
- * method(s) i.e that the specified method(s) are "unchecked". It can be 
- * specified on a class or on methods. Specifying it on the class means that 
- * it applies to all methods of the class. If specified at the method level, 
- * it only affects that method. If the RolesAllowed is specified at the class 
- * level and this annotation is applied at the method level, the PermitAll 
- * annotation overrides the RolesAllowed for the specified method.
+ * method(s) &#8212; i.e., that the specified method(s) are "unchecked". 
+ * It can be specified on a class or on methods. Specifying it on the class 
+ * means that it applies to all methods of the class. If specified at the 
+ * method level, it only affects that method. If the <code>RolesAllowed</code>
+ * annotation is specified at the class level and this annotation is 
+ * applied at the method level, the <code>PermitAll</code> 
+ * annotation overrides the <code>RolesAllowed</code> annotation for
+ *  the specified method.
  *
  * @see javax.annotation.security.RolesAllowed
  * @see javax.annotation.security.DenyAll

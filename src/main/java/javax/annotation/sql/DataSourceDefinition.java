@@ -1,7 +1,7 @@
 /*
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
  *
- * Copyright (c) 2009-2012 Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 2009-2016 Oracle and/or its affiliates. All rights reserved.
  *
  * The contents of this file are subject to the terms of either the GNU
  * General Public License Version 2 only ("GPL") or the Common Development
@@ -40,13 +40,14 @@
 
 package javax.annotation.sql;
 
+import java.lang.annotation.*;
 import java.lang.annotation.Target;
 import java.lang.annotation.Retention;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.RetentionPolicy;
 
 /**
- * Annotation used to define a container <code>DataSource</code> and
+ * Annotation used to define a container <code>DataSource</code> to
  * be registered with JNDI. The <code>DataSource</code> may be configured by
  * setting the annotation elements for commonly used <code>DataSource</code>
  * properties.  Additional standard and vendor-specific properties may be
@@ -55,7 +56,7 @@ import java.lang.annotation.RetentionPolicy;
  *
  * The data source will be registered under the name specified in the
  * <code>name</code> element. It may be defined to be in any valid
- * <code>Java EE</code> namespace, and will determine the accessibility of
+ * Java EE namespace, which will determine the accessibility of
  * the data source from other components.
  * <p>
  * A JDBC driver implementation class of the appropriate type, either
@@ -80,13 +81,15 @@ import java.lang.annotation.RetentionPolicy;
  *   )// DO NOT DO THIS!!!
  * </pre>
  * <p>
- * In the above example, the databaseName, user and serverName properties were
- * specified as part of the url property and using the corresponding
+ * In the above example, the <code>databaseName</code>, <code>user</code>
+ * and <code>serverName</code> properties were specified as part of the 
+ * <code>url</code> property and using the corresponding
  * annotation elements. This should be avoided.
  * <p>
- * If the properties annotation element is used and contains a DataSource
- * property that was also specified using the corresponding annotation element,
- * the annotation element value takes precedence.  For example:
+ * If the <code>properties</code> annotation element is used and contains a 
+ * DataSource property that was also specified using the corresponding 
+ * annotation element, the annotation element value takes precedence.  
+ * For example:
  * <p>
  * <pre>
  *   &#064;DataSourceDefinition(name="java:global/MyApp/MyDataSource",
@@ -99,7 +102,7 @@ import java.lang.annotation.RetentionPolicy;
  *   )// DO NOT DO THIS!!!
  * </pre>
  * <p>
- * Would result in the following values being used when configuring
+ * This would result in the following values being used when configuring
  * the DataSource:
  * <ul>
  * <li>serverName=luckydog</li>
@@ -147,7 +150,7 @@ import java.lang.annotation.RetentionPolicy;
  * )
  * </pre>
  * <p>
- * An example lookup of the {@link DataSource} from an EJB:
+ * An example lookup of the DataSource from an EJB:
  * <pre>
  * &#064;Stateless
  * public class MyStatelessEJB {
@@ -164,6 +167,7 @@ import java.lang.annotation.RetentionPolicy;
  */
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
+@Repeatable(DataSourceDefinitions.class)
 public @interface DataSourceDefinition {
 
     /**
@@ -173,7 +177,7 @@ public @interface DataSourceDefinition {
      String name();
 
     /**
-     * DataSource implementation class name which implements:
+     * Name of a DataSource class that implements
      *  <code>javax.sql.DataSource</code> or <code>javax.sql.XADataSource</code>
      * or <code>javax.sql.ConnectionPoolDataSource</code>.
      * @since 1.1
@@ -187,9 +191,10 @@ public @interface DataSourceDefinition {
     String description() default "";
 
     /**
-     * A JDBC URL.  If the url annotation element contains a DataSource
-     * property that was also specified using the corresponding annotation
-     * element, the precedence order is undefined and implementation specific.
+     * A JDBC URL.  If the <code>url</code>  annotation element contains a 
+     * DataSource property that was also specified using the corresponding 
+     * annotation element, the precedence order is undefined and 
+     * implementation specific.
      * @since 1.1
      */
     String url() default "";
@@ -298,7 +303,7 @@ public @interface DataSourceDefinition {
      */
     int maxStatements() default -1;
     /**
-     *  Used to specify  Vendor specific properties and less commonly
+     * Used to specify vendor-specific properties and less commonly
      * used <code>DataSource</code> properties such as:
      * <p>
      * <ul>
@@ -311,7 +316,7 @@ public @interface DataSourceDefinition {
      *  Properties are specified using the format:
      *  <i>propertyName=propertyValue</i>  with one property per array element.
      * <p>
-     * If a DataSource property is specified in the properties
+     * If a DataSource property is specified in the <code>properties</code>
      * element and the annotation element for the  property is also
      * specified, the annotation element value takes precedence.
      * @since 1.1

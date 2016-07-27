@@ -1,7 +1,7 @@
 /*
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
  *
- * Copyright (c) 2005-2011 Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 2005-2016 Oracle and/or its affiliates. All rights reserved.
  *
  * The contents of this file are subject to the terms of either the GNU
  * General Public License Version 2 only ("GPL") or the Common Development
@@ -45,8 +45,7 @@ import static java.lang.annotation.RetentionPolicy.*;
 
 /**
  * Specifies that no security roles are allowed to invoke the specified 
- * method(s) - i.e that the methods are to be excluded from execution in 
- * the J2EE container.
+ * method(s).
  *
  * @see javax.annotation.security.RolesAllowed
  * @see javax.annotation.security.PermitAll

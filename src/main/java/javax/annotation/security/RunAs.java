@@ -1,7 +1,7 @@
 /*
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
  *
- * Copyright (c) 2005-2011 Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 2005-2016 Oracle and/or its affiliates. All rights reserved.
  *
  * The contents of this file are subject to the terms of either the GNU
  * General Public License Version 2 only ("GPL") or the Common Development
@@ -44,10 +44,10 @@ import static java.lang.annotation.ElementType.*;
 import static java.lang.annotation.RetentionPolicy.*;
 
 /**
- * Defines the identity of the application during execution in a J2EE 
- * container. This allows developers to execute under a particular role. 
- * The role must map to the user / group information in the containers 
- * security realm. It's value is the name of a security role.
+ * Defines the identity of the application during execution.
+ * This allows developers to execute an application under a particular role. 
+ * The role must map to the user / group information in the container's 
+ * security realm. Its value is the name of a security role.
  *
  * @since Common Annotations 1.0
  */
@@ -55,5 +55,8 @@ import static java.lang.annotation.RetentionPolicy.*;
 @Retention (RUNTIME)
 @Target(TYPE)
 public @interface RunAs {
+    /**
+     * Name of a security role.
+     */
     String value();
 }

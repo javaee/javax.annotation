@@ -1,7 +1,7 @@
 /*
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
  *
- * Copyright (c) 2005-2011 Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 2005-2016 Oracle and/or its affiliates. All rights reserved.
  *
  * The contents of this file are subject to the terms of either the GNU
  * General Public License Version 2 only ("GPL") or the Common Development
@@ -46,24 +46,25 @@ import static java.lang.annotation.ElementType.*;
 import static java.lang.annotation.RetentionPolicy.*;
 
 /**
- * The Priority annotation can be applied to classes to indicate
- * in what order the classes should be used.  The effect of using
- * the Priority annotation in any particular instance is defined
- * by other specifications that define the use of a specific class.
+ * The <code>Priority</code> annotation can be applied to classes 
+ * or parameters to indicate in what order they should be used.  
+ * The effect of using the <code>Priority</code> annotation in
+ * any particular instance is defined by other specifications that 
+ * define the use of a specific class.
  * <p>
  * For example, the Interceptors specification defines the use of
  * priorities on interceptors to control the order in which
- * interceptors are called.
+ * interceptors are called.</p>
  * <p>
  * Priority values should generally be non-negative, with negative values
  * reserved for special meanings such as "undefined" or "not specified".
- * A specification that defines use of the Priority annotation may define
+ * A specification that defines use of the <code>Priority</code> annotation may define
  * the range of allowed priorities and any priority values with special
- * meaning.
+ * meaning.</p>
  *
  * @since Common Annotations 1.2
  */
-@Target({TYPE})
+@Target({TYPE,PARAMETER})
 @Retention(RUNTIME)
 @Documented
 public @interface Priority {

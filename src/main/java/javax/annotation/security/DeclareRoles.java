@@ -1,7 +1,7 @@
 /*
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
  *
- * Copyright (c) 2005-2011 Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 2005-2016 Oracle and/or its affiliates. All rights reserved.
  *
  * The contents of this file are subject to the terms of either the GNU
  * General Public License Version 2 only ("GPL") or the Common Development
@@ -44,8 +44,9 @@ import static java.lang.annotation.ElementType.*;
 import static java.lang.annotation.RetentionPolicy.*;
 
 /**
- * Used by application to declare roles. It can be 
- * specified on a class. 
+ * Used by application to declare security roles. It can be 
+ * specified on a class. The value of the <code>DeclareRoles</code>
+ * annotation is a list of security role names.
  *
  * @since Common Annotations 1.0
  */
@@ -53,5 +54,8 @@ import static java.lang.annotation.RetentionPolicy.*;
 @Retention (RUNTIME)
 @Target(TYPE)
 public @interface DeclareRoles {
+    /**
+     * List of security role names.
+     */
     String[] value();
 }

@@ -1,7 +1,7 @@
 /*
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
  *
- * Copyright (c) 2005-2014 Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 2005-2016 Oracle and/or its affiliates. All rights reserved.
  *
  * The contents of this file are subject to the terms of either the GNU
  * General Public License Version 2 only ("GPL") or the Common Development
@@ -45,7 +45,7 @@ import static java.lang.annotation.ElementType.*;
 import static java.lang.annotation.RetentionPolicy.*;
 
 /**
- * The Resource annotation marks a resource that is needed
+ * The <code>Resource</code> annotation marks a resource that is needed
  * by the application.  This annotation may be applied to an
  * application component class, or to fields or methods of the
  * component class.  When the annotation is applied to a
@@ -53,20 +53,21 @@ import static java.lang.annotation.RetentionPolicy.*;
  * of the requested resource into the application component
  * when the component is initialized.  If the annotation is
  * applied to the component class, the annotation declares a
- * resource that the application will look up at runtime. <p>
- *
- * Even though this annotation is not marked Inherited, deployment
+ * resource that the application will look up at runtime. 
+ * <p>
+ * Even though this annotation is not marked <code>Inherited</code>, deployment
  * tools are required to examine all superclasses of any component
  * class to discover all uses of this annotation in all superclasses.
  * All such annotation instances specify resources that are needed
  * by the application component.  Note that this annotation may
  * appear on private fields and methods of superclasses; the container
- * is required to perform injection in these cases as well.
+ * is required to perform injection in these cases as well.</p>
  *
  * @since 1.6, Common Annotations 1.0
  */
 @Target({TYPE, FIELD, METHOD})
 @Retention(RUNTIME)
+@Repeatable(Resources.class)
 public @interface Resource {
     /**
      * The JNDI name of the resource.  For field annotations,
@@ -121,19 +122,14 @@ public @interface Resource {
     boolean shareable() default true;
 
     /**
-     * A product specific name that this resource should be mapped to.
-     * The name of this resource, as defined by the <code>name</code>
-     * element or defaulted, is a name that is local to the application
-     * component using the resource.  (It's a name in the JNDI
-     * <code>java:comp/env</code> namespace.)  Many application servers
-     * provide a way to map these local names to names of resources
-     * known to the application server.  This mapped name is often a
-     * <i>global</i> JNDI name, but may be a name of any form. <p>
-     *
-     * Application servers are not required to support any particular
+     * A product-specific name that this resource should be mapped to.
+     * The <code>mappedName</code> element provides for mapping the
+     * resource reference to the name of a resource known to the
+     * applicaiton server.  The mapped name could be of any form.
+     * <p>Application servers are not required to support any particular
      * form or type of mapped name, nor the ability to use mapped names.
      * The mapped name is product-dependent and often installation-dependent.
-     * No use of a mapped name is portable.
+     * No use of a mapped name is portable.</p>
      */
     String mappedName() default "";
 
