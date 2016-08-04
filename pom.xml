@@ -51,13 +51,15 @@
 
     <groupId>javax.annotation</groupId>
     <artifactId>javax.annotation-api</artifactId>
-    <version>1.2.1-SNAPSHOT</version>
+    <version>1.3-b01-SNAPSHOT</version>
     
     <properties>
-        <non.final>false</non.final>
+        <non.final>true</non.final>
         <spec.version>1.2</spec.version>
+        <new.spec.version>1.3</new.spec.version>
+        <spec.build>01</spec.build>
         <extension.name>javax.annotation</extension.name>
-        <bundle.symbolicName>javax.annotation-api</bundle.symbolicName>         
+        <bundle.symbolicName>javax.annotation-api</bundle.symbolicName>
         <vendor.name>Oracle Corporation</vendor.name>
         <implementation.vendor.id>org.glassfish</implementation.vendor.id>
         <findbugs.version>2.3.1</findbugs.version>
@@ -66,7 +68,7 @@
     </properties>
     <name>${extension.name} API</name>
     <description>Common Annotations for the JavaTM Platform API</description>
-    
+
     <url>http://jcp.org/en/jsr/detail?id=250</url>
 
     <developers>
@@ -123,14 +125,14 @@
                     <exclude>META-INF/README</exclude>
                 </excludes>
             </resource>
-        </resources>        
+        </resources>
         <plugins>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>2.5.1</version>
                 <configuration>
-                    <source>1.6</source>
-                    <target>1.6</target>
+                    <source>1.8</source>
+                    <target>1.8</target>
                     <compilerArgument>-Xlint:unchecked</compilerArgument>
                 </configuration>
             </plugin>
@@ -142,7 +144,9 @@
                     <spec>
                         <nonFinal>${non.final}</nonFinal>
                         <jarType>api</jarType>
+                        <specBuild>${spec.build}</specBuild>
                         <specVersion>${spec.version}</specVersion>
+                        <newSpecVersion>${new.spec.version}</newSpecVersion>
                         <specImplVersion>${project.version}</specImplVersion>
                         <apiPackage>${extension.name}</apiPackage>
                     </spec>
@@ -155,7 +159,7 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>            
+            </plugin>
             <plugin>
                 <groupId>org.apache.felix</groupId>
                 <artifactId>maven-bundle-plugin</artifactId>
@@ -169,7 +173,7 @@
                         <Bundle-SymbolicName>${spec.bundle.symbolic-name}</Bundle-SymbolicName>
                         <Extension-Name>${spec.extension.name}</Extension-Name>
                         <Implementation-Version>${spec.implementation.version}</Implementation-Version>
-                        <Specification-Version>${spec.specification.version}</Specification-Version>                         
+                        <Specification-Version>${spec.specification.version}</Specification-Version>
                         <Bundle-Description>
                             Java(TM) Common Annotations ${spec.version} API Design Specification
                         </Bundle-Description>
@@ -258,7 +262,7 @@
     Use is subject to
     <a href="{@docRoot}/doc-files/speclicense.html" target="_top">license terms</a>.
 ]]>
-                            </bottom>                            
+                            </bottom>
                         </configuration>
                     </execution>
                 </executions>
@@ -299,7 +303,7 @@
                                     <excludeFilterFile>${findbugs.exclude}</excludeFilterFile>
                                 </configuration>
                             </plugin>
-                        </plugins>                        
+                        </plugins>
                     </reporting>
                 </configuration>
             </plugin>
