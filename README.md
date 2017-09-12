@@ -1,6 +1,6 @@
 # Java(TM) Common Annotations
 
-The intention of Java(TM) Common Annotations is to  to develop annotations for common semantic 
+The intention of Java(TM) Common Annotations is to develop annotations for common semantic 
 concepts in the Java SE and Java EE platforms that apply across a variety of individual 
 technologies. It was envisioned that various JSRs would use annotations to enable a declarative
 style of programming. It would be especially valuable to have consistency within the Java EE 
