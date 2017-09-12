@@ -63,7 +63,6 @@
         <findbugs.version>2.3.1</findbugs.version>
         <findbugs.exclude>exclude.xml</findbugs.exclude>
         <findbugs.threshold>Low</findbugs.threshold>
-
     </properties>
     <name>${extension.name} API</name>
     <description>Common Annotations for the JavaTM Platform API</description>
