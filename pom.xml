@@ -3,19 +3,19 @@
 
     DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
 
-    Copyright (c) 2012-2016 Oracle and/or its affiliates. All rights reserved.
+    Copyright (c) 2012-2017 Oracle and/or its affiliates. All rights reserved.
 
     The contents of this file are subject to the terms of either the GNU
     General Public License Version 2 only ("GPL") or the Common Development
     and Distribution License("CDDL") (collectively, the "License").  You
     may not use this file except in compliance with the License.  You can
     obtain a copy of the License at
-    https://glassfish.dev.java.net/public/CDDL+GPL_1_1.html
-    or packager/legal/LICENSE.txt.  See the License for the specific
+    https://oss.oracle.com/licenses/CDDL+GPL-1.1
+    or LICENSE.txt.  See the License for the specific
     language governing permissions and limitations under the License.
 
     When distributing the software, include this License Header Notice in each
-    file and include the License file at packager/legal/LICENSE.txt.
+    file and include the License file at LICENSE.txt.
 
     GPL Classpath Exception:
     Oracle designates this particular file as subject to the "Classpath"
@@ -51,7 +51,7 @@
 
     <groupId>javax.annotation</groupId>
     <artifactId>javax.annotation-api</artifactId>
-    <version>1.4-SNAPSHOT</version>
+    <version>1.3.1-SNAPSHOT</version>
     
     <properties>
         <non.final>false</non.final>
@@ -70,10 +70,10 @@
     <url>http://jcp.org/en/jsr/detail?id=250</url>
 
     <developers>
-        <developer>
-            <id>mode</id>
-            <name>Rajiv Mordani</name>
-            <organization>Oracle, Inc.</organization>
+         <developer>
+            <id>ldemichiel</id>
+            <name>Linda De Michiel</name>
+            <organization>Oracle Corp.</organization>
             <roles>
                 <role>lead</role>
             </roles>
@@ -82,30 +82,30 @@
 
     <organization>
         <name>GlassFish Community</name>
-        <url>https://glassfish.java.net</url>
+        <url>https://javaee.github.io/glassfish</url>
     </organization>
     <licenses>
         <license>
             <name>CDDL + GPLv2 with classpath exception</name>
-            <url>https://glassfish.dev.java.net/nonav/public/CDDL+GPL.html</url>
+            <url>https://github.com/javaee/javax.annotation/blob/master/LICENSE</url>
             <distribution>repo</distribution>
             <comments>A business-friendly OSS license</comments>
         </license>
     </licenses>
     <issueManagement>
-        <system>jira</system>
-        <url>http://java.net/jira/browse/GLASSFISH</url>
+        <system>GitHub</system>
+        <url>https://github.com/javaee/javax.annotation/issues</url>
     </issueManagement>
     <mailingLists>
         <mailingList>
             <name>GlassFish Developer</name>
-            <archive>users@https://glassfish.java.net</archive>
+            <archive>javaee-spec@javaee.groups.io</archive>
         </mailingList>
     </mailingLists>
     <scm>
-        <connection>scm:svn:https://svn.java.net/svn/glassfish~svn/trunk/api/javaee-api/javax.annotation</connection>
-        <developerConnection>scm:svn:https://svn.java.net/svn/glassfish~svn/trunk/api/javaee-api/javax.annotation</developerConnection>
-        <url>http://java.net/projects/glassfish/sources/svn/show/trunk/api/javaee-api/javax.annotation</url>
+        <connection>scm:git:https://github.com/javaee/javax.annotation.git</connection>
+        <developerConnection>scm:git:git@github.com:javaee/javax.annotation.git</developerConnection>
+        <url>https://github.com/javaee/javax.annotation</url>
     </scm>
 
     <build>
@@ -197,6 +197,12 @@
                 <configuration>
                     <archive>
                         <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
+                        <manifestEntries>
+                            <!-- for JDK 9 -->
+                            <Automatic-Module-Name>
+                                java.annotation
+                            </Automatic-Module-Name>
+                        </manifestEntries>
                     </archive>
                     <excludes>
                         <exclude>**/*.java</exclude>
@@ -254,7 +260,7 @@
                                 </group>
                             </groups>
                             <bottom>
-<![CDATA[Copyright &#169; 1999-2013,
+<![CDATA[Copyright &#169; 1999-2017,
     <a href="http://www.oracle.com">Oracle</a>
     and/or its affiliates. All Rights Reserved.
     Use is subject to
