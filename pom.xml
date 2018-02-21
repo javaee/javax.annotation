@@ -51,7 +51,7 @@
 
     <groupId>javax.annotation</groupId>
     <artifactId>javax.annotation-api</artifactId>
-    <version>1.3.2-SNAPSHOT</version>
+    <version>1.3.2</version>
     
     <properties>
         <non.final>false</non.final>
@@ -106,7 +106,7 @@
         <connection>scm:git:https://github.com/javaee/javax.annotation.git</connection>
         <developerConnection>scm:git:git@github.com:javaee/javax.annotation.git</developerConnection>
         <url>https://github.com/javaee/javax.annotation</url>
-      <tag>HEAD</tag>
+      <tag>1.3.2</tag>
   </scm>
 
     <build>
